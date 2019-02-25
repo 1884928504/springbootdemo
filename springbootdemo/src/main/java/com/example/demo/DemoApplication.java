@@ -21,12 +21,11 @@ public class DemoApplication{
         String a = redisService.get(key);
         return a;
     }
-    @RequestMapping("/setUser/{str}")
-    public boolean setUser(@PathVariable String str){
-        boolean c = redisService.set("e", str);
+    @RequestMapping("/setUser/{key}/{valu}")
+    public boolean setUser(@PathVariable String key ,@PathVariable String valu){
+        boolean c = redisService.set(key,valu);
         return c;
     }
-
     public static void main(String[] args) {
         SpringApplication.run(DemoApplication.class, args);
     }
