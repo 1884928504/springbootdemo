@@ -1,25 +1,25 @@
 package com.example.demo;
 
+import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Test extends HttpServlet {
 
-    public static void main(String []args){
-        long time=System.currentTimeMillis();
-        Date date=new Date(time);
-        String mat="yyyy-MM-dd";
-        String ma="yyyyMMdd";
-        SimpleDateFormat format=new SimpleDateFormat(mat);
-        SimpleDateFormat forma=new SimpleDateFormat(ma);
-        String nowdate=format.format(date);
-        String nwdate=forma.format(date);
-        int x=Integer.parseInt(nwdate);
-        System.out.println(time);
-        System.out.println(nowdate);
-        //System.out.println(nwdate);
-        //System.out.println(x);
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        super.doGet(req, resp);
+    }
+
+    public static void main(String []args) throws FileNotFoundException {
+
+        FileInputStream fi=new FileInputStream("");
     }
 
 }
