@@ -16,9 +16,8 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 @Service("RedisService")
-public class RedisServiceImpl extends HttpServlet implements RedisService{
+public class RedisServiceImpl implements RedisService{
 
-    private  String ip;
 
     @Autowired
     private RedisTemplate<String ,?> template;
@@ -49,15 +48,4 @@ public class RedisServiceImpl extends HttpServlet implements RedisService{
         return result;
     }
 
-    @Override
-    public String getIp() {
-        return ip;
-    }
-
-    @Override
-    public void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        ip = req.getRemoteAddr();
-        System.out.println(ip);
-        String localAddr = req.getLocalAddr();
-    }
 }
