@@ -14,11 +14,14 @@ import javax.servlet.http.HttpServletRequest;
 @SpringBootApplication
 public class DemoApplication{
 
+
     @Autowired
     private RedisServiceImpl redisService;
 
     @RequestMapping("/getUser/{key}")
-    public String getUser(@PathVariable String key){
+    public String getUser(@PathVariable String key,HttpServletRequest request){
+        String ipAddr = IpUtil.getIpAddr(request);
+        System.out.println(ipAddr+"getUser");
         String a = redisService.get(key);
         return a;
     }
@@ -30,7 +33,6 @@ public class DemoApplication{
     @RequestMapping(value = "/getIp")
     public String getIp(HttpServletRequest request) {
         String ip= IpUtil.getIpAddr(request);
-        System.out.println(ip);
         return ip;
     }
     public static void main(String[] args) {

@@ -38,7 +38,6 @@ public class IpUtil {
         } catch (Exception e) {
             ipAddress="";
         }
-        // ipAddress = this.getRequest().getRemoteAddr();
 
         return ipAddress;
     }
