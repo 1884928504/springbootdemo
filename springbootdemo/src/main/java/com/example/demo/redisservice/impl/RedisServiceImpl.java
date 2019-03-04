@@ -1,6 +1,7 @@
 package com.example.demo.redisservice.impl;
 
 import com.example.demo.redisservice.RedisService;
+import com.example.demo.utill.IpUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.data.redis.connection.RedisConnection;
@@ -14,10 +15,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.sql.Time;
 
 @Service("RedisService")
 public class RedisServiceImpl implements RedisService{
-
 
     @Autowired
     private RedisTemplate<String ,?> template;
@@ -46,6 +47,11 @@ public class RedisServiceImpl implements RedisService{
             }
         });
         return result;
+    }
+    @Override
+    public String getip(HttpServletRequest request) {
+        String ip = IpUtil.getIpAddr(request);
+        return ip;
     }
 
 }
